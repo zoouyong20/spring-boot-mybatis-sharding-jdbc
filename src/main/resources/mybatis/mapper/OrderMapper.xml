@@ -21,6 +21,12 @@
         FROM t_order
     </select>
 
+    <select id="querypage" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_order limit #{start},#{pageSize}
+    </select>
+
     <insert id="insert" parameterType="com.flaygo.entity.OrderEntity" >
         INSERT INTO
         t_order

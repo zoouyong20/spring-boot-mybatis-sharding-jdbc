@@ -20,8 +20,10 @@ public class OrderController {
     private OrderService orderService;
 
     @RequestMapping("/getUsers")
-    public List<OrderEntity> getOrderEntitys() {
-        List<OrderEntity> users=orderService.getUsers();
+    public List<OrderEntity> getOrderEntitys(@RequestParam(value = "start") Integer start,
+            @RequestParam(value = "size") Integer size) {
+        
+        List<OrderEntity> users=orderService.getUsers(start,size);
         return users;
     }
 

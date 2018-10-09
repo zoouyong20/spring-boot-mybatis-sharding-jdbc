@@ -21,6 +21,11 @@ public class OrderService {
         List<OrderEntity> users=orderMapper.getAll();
         return users;
     }
+    
+    public List<OrderEntity> getUsers(int start,int pageSize) {
+        List<OrderEntity> users=orderMapper.querypage(start, pageSize);
+        return users;
+    }
 
     public void updateTransactional(OrderEntity orderEntity) {
         try{
